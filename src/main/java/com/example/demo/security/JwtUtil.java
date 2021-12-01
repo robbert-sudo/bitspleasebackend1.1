@@ -1,4 +1,5 @@
-package com.example.demo.config;
+package com.example.demo.security;
+
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -16,9 +17,13 @@ public class JwtUtil {
 
     private final static String SECRET_KEY = "secret";
 
-    public String extractUsername(String token) { return extractClaim(token, Claims::getSubject);}
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
 
-    private Date extractExpiration(String token) { return extractClaim(token, Claims::getExpiration);}
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
 
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
@@ -39,7 +44,7 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
-        long validPeriod = 1000 * 60 * 60 * 24 * 10; // 10 days in ms
+        long validPeriod = 1000 * 60 * 60 * 24 * 10;   // 10 days in ms
         long currentTime = System.currentTimeMillis();
         return Jwts.builder()
                 .setClaims(claims)
@@ -54,6 +59,5 @@ public class JwtUtil {
         final String username = extractUsername(token);
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
-
 
 }

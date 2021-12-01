@@ -1,5 +1,4 @@
-package com.example.demo.config;
-
+package com.example.demo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +28,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    WebSecurityConfiguration (DataSource dataSource, JwtRequestFilter jwtRequestFilter) {
+    WebSecurityConfiguration(DataSource dataSource, JwtRequestFilter jwtRequestFilter) {
         this.dataSource = dataSource;
         this.jwtRequestFilter = jwtRequestFilter;
     }
@@ -40,6 +39,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, authority FROM authorities AS a WHERE username=?");
+
     }
 
     @Bean
@@ -66,7 +66,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/users").hasRole("USER")
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers(PATCH,"/users/{^[\\w]$}/password").authenticated()
+                .antMatchers("/users/**").hasRole("ADMIN")
+//                .antMatchers("/customers/**").hasRole("USER")
+//                .antMatchers(POST,"/authenticate").permitAll()
+//                .antMatchers(GET,"/public").permitAll()
                 .anyRequest().denyAll()
                 .and()
                 .csrf().disable()
@@ -77,4 +82,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
     }
+
+
+
 }
