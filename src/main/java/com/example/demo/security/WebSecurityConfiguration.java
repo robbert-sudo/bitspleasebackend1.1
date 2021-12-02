@@ -74,6 +74,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(GET,"/public").permitAll()
                 .antMatchers(GET,"/games").permitAll()
                 .antMatchers(POST,"/games").permitAll()
+                .antMatchers( "/**").permitAll()
+                .antMatchers("/uploadFile").permitAll()
                 .anyRequest().denyAll()
                 .and()
                 .csrf().disable()

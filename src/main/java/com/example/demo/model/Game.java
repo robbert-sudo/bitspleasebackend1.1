@@ -22,9 +22,11 @@ public class Game {
     @Column(nullable = false)
     public long uploader_id;
 
-    @Lob
-    @Column
-    public byte[] picture;
+
+
+//    @Lob
+//    @Column
+//    public byte[] picture;
 
 
 
@@ -38,6 +40,6 @@ public class Game {
     public void setDeveloper(String developer) {this.developer = developer;}
     public long getUploaderId() {return uploader_id;}
     public void setUploaderId(long uploaderId) {this.uploader_id = uploaderId;}
-    public byte[] getPicture() {return picture;}
-    public void setPicture(byte[] picture) {this.picture = picture;}
+//    public byte[] getPicture() {return picture;}
+//    public void setPicture(byte[] picture) {this.picture = picture;}
 }
