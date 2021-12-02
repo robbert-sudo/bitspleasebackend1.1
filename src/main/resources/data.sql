@@ -8,3 +8,6 @@ VALUES
 ('admin', 'ROLE_USER'),
 ('admin', 'ROLE_ADMIN'),
 ('user', 'ROLE_USER');
+
+INSERT INTO games (name, system, developer, uploader_id)
+VALUES ('super mario world', 'snes', 'nintendo',1);

@@ -72,6 +72,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/customers/**").hasRole("USER")
                 .antMatchers(POST,"/authenticate").permitAll()
                 .antMatchers(GET,"/public").permitAll()
+                .antMatchers(GET,"/games").permitAll()
+                .antMatchers(POST,"/games").permitAll()
                 .anyRequest().denyAll()
                 .and()
                 .csrf().disable()
