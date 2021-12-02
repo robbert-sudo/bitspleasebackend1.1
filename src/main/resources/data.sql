@@ -12,6 +12,3 @@ VALUES
 INSERT INTO games (name, system, developer, uploader_id)
 VALUES ('super mario world', 'snes', 'nintendo',1);
 
-INSERT INTO docs (docName, docType, data)
-VALUES
-(SELECT * FROM OPENROWSET ((BULK N'C:\Users\Bob\Desktop\donkeykongcountry.jpg', SINGLE_BLOB) as T1));
