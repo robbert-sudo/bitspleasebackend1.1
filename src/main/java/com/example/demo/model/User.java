@@ -24,7 +24,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     private boolean enabled = true;
 
-    @Column(unique = true)
+    @Column()
     private String email;
 
     @OneToMany(
