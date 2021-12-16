@@ -7,7 +7,7 @@ INSERT INTO authorities (user_id, authority, username)
 VALUES
 (1, 'ROLE_USER', 'admin'),
 (1, 'ROLE_ADMIN', 'admin'),
-(2, 'ROLE_USER', 'admin');
+(2, 'ROLE_USER', 'user');
 
 INSERT INTO games (name, system, developer, uploader_id)
 VALUES ('super mario world', 'snes', 'nintendo',1);
