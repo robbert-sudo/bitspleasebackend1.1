@@ -74,13 +74,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(GET,"/public").permitAll()
                 .antMatchers(GET,"/games").permitAll()
                 .antMatchers(POST,"/games").permitAll()
-                .antMatchers( "/**").permitAll()
+                //.antMatchers( "/**").permitAll()
                 .antMatchers("/uploadFile").permitAll()
                 .antMatchers("/sellerratings").permitAll()
-                .anyRequest().denyAll()
+                //.anyRequest().denyAll()
                 .and()
                 .csrf().disable()
-                .formLogin().disable()
+                //.formLogin().disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
