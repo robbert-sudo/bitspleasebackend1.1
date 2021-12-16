@@ -19,6 +19,20 @@ public class SellersRatingServiceImpl implements SellersRatingService {
     }
 
     @Override
+    public Iterable<SellersRating> findAll() {
+        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAll();
+        return sellersRatings;
+    }
+
+
+    @Override
+    public Iterable<SellersRating> findAllByRatedUserId(long ratedUserId) {
+        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAllByRatedUserId(ratedUserId);
+        return sellersRatings;
+
+    }
+
+    @Override
     public float getAverageRatingBySeller(long sellerId) {
         ArrayList<SellersRating> results = new ArrayList<SellersRating>();
         Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAll();
@@ -34,8 +48,9 @@ public class SellersRatingServiceImpl implements SellersRatingService {
         for (SellersRating s : results) {
             total += s.getRating();
         }
-        float averageRating = (float)total / (float)results.size();
+        float averageRating = (float) total / (float) results.size();
         return averageRating;
     }
+
 
 }

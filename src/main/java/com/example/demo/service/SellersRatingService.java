@@ -8,5 +8,7 @@ public interface SellersRatingService {
 
     float getAverageRatingBySeller(long sellerId);
 
+    Iterable<SellersRating> findAll();
 
+    Iterable<SellersRating> findAllByRatedUserId(long ratedUserId);
 }
