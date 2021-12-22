@@ -12,3 +12,11 @@ VALUES
 INSERT INTO games (name, system, developer, uploader_id)
 VALUES ('super mario world', 'snes', 'nintendo',1);
 
+INSERT INTO sellers_rating (rated_user_id, rating)
+VALUES
+(1,7),
+(1,6),
+(1,8),
+(2,5),
+(2,5),
+(2,5);
