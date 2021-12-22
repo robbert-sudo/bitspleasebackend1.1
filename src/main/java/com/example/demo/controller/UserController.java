@@ -1,13 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.request.UserPostRequest;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -36,6 +34,16 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @PostMapping(value = "/user")
+    public ResponseEntity createUser(@RequestBody UserPostRequest userPostRequest) {
 
+        userService.create(userPostRequest);
+        return ResponseEntity.ok("User aangemaakt");
+    }
 
+    @DeleteMapping(value = "/user/{username}")
+    public ResponseEntity deleteUser(@PathVariable("username") String username) {
+        userService.delete(username);
+        return ResponseEntity.ok("User verwijderd");
+    }
 }
