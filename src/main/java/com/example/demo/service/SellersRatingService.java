@@ -6,7 +6,7 @@ public interface SellersRatingService {
 
     void save (SellersRating sellersRating);
 
-    float getAverageRatingBySeller(long sellerId);
+    float getAverageRatingBySeller(long ratedUserId);
 
     Iterable<SellersRating> findAll();
 
