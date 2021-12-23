@@ -19,6 +19,7 @@ public class Authority implements Serializable {
     @Column(nullable = false)
     private String username;
 
+
     public Authority() {}
     public Authority(long user_id, String authority, String username) {
         this.user_id = user_id;
