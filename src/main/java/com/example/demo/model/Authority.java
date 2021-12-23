@@ -11,6 +11,7 @@ public class Authority implements Serializable {
     @Id
     @Column(nullable = false)
     private long user_id;
+    //nodig voor authoritie aanmaken maar wordt pas gegenereerd bij het opslaan in de postgresql??!!
 
     @Id
     @Column(nullable = false)
