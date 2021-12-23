@@ -12,7 +12,7 @@ public interface UserService {
 
     Optional<User> getUser(String username);
 
-    void create(UserPostRequest userPostRequest);
+    public String create(UserPostRequest userPostRequest);
 
     void delete(String username);
 }

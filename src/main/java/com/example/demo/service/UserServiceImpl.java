@@ -2,8 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.UserRepository.UserRepository;
 import com.example.demo.dto.request.UserPostRequest;
+import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,10 +14,12 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
+    PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UserServiceImpl(UserRepository userRepository) {
+    private UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -32,13 +36,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void create(UserPostRequest userPostRequest) {
+    public String create(UserPostRequest userPostRequest) {
+        try {
 
-        User user = new User();
-        user.setUsername(userPostRequest.getUsername());
-        user.setPassword(userPostRequest.getPassword());
-        user.setEmail(userPostRequest.getEmail());
-        User savedUser = userRepository.save(user);
+            String encryptedPassword = passwordEncoder.encode(userPostRequest.getPassword());
+
+            User user = new User();
+            user.setUsername(userPostRequest.getUsername());
+            user.setPassword(encryptedPassword);
+            user.setEmail(userPostRequest.getEmail());
+            user.setEnabled(true);
+            user.addAuthority("ROLE_USER");
+
+
+            User savedUser = userRepository.save(user);
+            return savedUser.getUsername();
+        } catch (Exception ex) {
+            throw new BadRequestException("Cannot create user.");
+        }
     }
 
     @Override
@@ -49,7 +64,6 @@ public class UserServiceImpl implements UserService {
             userRepository.delete(user);
         }
     }
-
 
 
 }

@@ -59,4 +59,11 @@ public class User implements Serializable {
     public Set<Authority> getAuthorities() {return authorities;}
 
     public void setAuthorities(Set<Authority> authorities) {this.authorities = authorities;}
+
+    public void addAuthority(Authority authority) {this.authorities.add(authority);}
+
+    public void addAuthority(String authorityString) {
+        this.authorities.add(new Authority(this.user_id, authorityString, this.username ));
+    }
+
 }

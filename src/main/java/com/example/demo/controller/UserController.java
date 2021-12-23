@@ -6,7 +6,9 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Optional;
 
 
@@ -35,10 +37,14 @@ public class UserController {
     }
 
     @PostMapping(value = "/user")
-    public ResponseEntity createUser(@RequestBody UserPostRequest userPostRequest) {
+    public ResponseEntity<Object> createUser(@RequestBody UserPostRequest userPostRequest) {
 
-        userService.create(userPostRequest);
-        return ResponseEntity.ok("User aangemaakt");
+        String newUsername = userService.create(userPostRequest);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{username}")
+                .buildAndExpand(newUsername).toUri();
+
+        return ResponseEntity.created(location).build();
     }
 
     @DeleteMapping(value = "/user/{username}")
