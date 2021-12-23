@@ -74,6 +74,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(DELETE, "/user/**").authenticated()
                 .antMatchers("/customers/**").hasRole("USER")
                 .antMatchers(POST,"/authenticate").permitAll()
+                .antMatchers("/authenticated").permitAll()
                 .antMatchers(GET,"/public").permitAll()
                 .antMatchers(GET,"/games").permitAll()
                 .antMatchers(POST,"/games").permitAll()
