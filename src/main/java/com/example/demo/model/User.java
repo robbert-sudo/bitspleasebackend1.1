@@ -53,7 +53,7 @@ public class User implements Serializable {
     public void addAuthority(Authority authority) {this.authorities.add(authority);}
 
     public void addAuthority(String authorityString) {
-        this.authorities.add(new Authority(this.user_id, authorityString));
+        this.authorities.add(new Authority(this.user_id, authorityString, this.username));
     }
 
 }
