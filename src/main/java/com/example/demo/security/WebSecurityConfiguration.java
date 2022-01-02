@@ -83,6 +83,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sellerratings").permitAll()
                 .anyRequest().denyAll()
                 .and()
+                .cors()
+                .and()
                 .csrf().disable()
                 //.formLogin().disable()
                 .sessionManagement()
