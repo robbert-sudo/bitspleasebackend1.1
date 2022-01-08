@@ -80,10 +80,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(POST,"/games").permitAll()
                 //.antMatchers( "/**").permitAll()
                 .antMatchers("/uploadFile").permitAll()
-                .antMatchers("/sellerratings").permitAll()
+                .antMatchers("/sellerratings/**").permitAll()
                 .anyRequest().denyAll()
                 .and()
                 .csrf().disable()
+                .cors()
+                .and()
                 //.formLogin().disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
