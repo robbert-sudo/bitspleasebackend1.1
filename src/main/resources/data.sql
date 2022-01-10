@@ -10,7 +10,16 @@ VALUES
 ( 2, 'ROLE_USER', 'user');
 
 INSERT INTO games (name, system, developer, uploader_id)
-VALUES ('super mario world', 'snes', 'nintendo',1);
+VALUES
+('super mario land', 'gameboy', 'nintendo',1),
+('super mario world', 'snes', 'nintendo',1),
+('super castlevania', 'snes', 'nintendo',1),
+('dr mario', 'gameboy', 'nintendo',1),
+('astrix', 'gameboy', 'nintendo',1),
+('rescue rangers', 'nes', 'capcom',1),
+('crazy taxi','dreamcast','hitmaker',1),
+('super mario sunshine','gamecube','nintendo',1),
+('quackshot', 'megadrive', 'sega',1);
 
 INSERT INTO sellers_rating (rated_user_id, rating)
 VALUES
