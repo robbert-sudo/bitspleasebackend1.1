@@ -46,10 +46,10 @@ public class UserServiceImpl implements UserService {
             user.setPassword(encryptedPassword);
             user.setEmail(userPostRequest.getEmail());
             user.setEnabled(true);
-            user.addAuthority("ROLE_USER");
-
-
             User savedUser = userRepository.save(user);
+            savedUser.addAuthority("ROLE_USER");
+
+            userRepository.save(savedUser);
             return savedUser.getUsername();
         } catch (Exception ex) {
             throw new BadRequestException("Cannot create user.");
