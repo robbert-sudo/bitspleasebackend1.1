@@ -47,7 +47,7 @@ public class GameServiceImpl implements GameService {
         existingGame.setName(game.getName());
         existingGame.setSystem(game.getSystem());
         existingGame.setDeveloper(game.getDeveloper());
-        existingGame.setUploaderId(game.getUploaderId());
+        existingGame.setUploader_id(game.getUploader_id());
         gameRepository.save(existingGame);
 
     }

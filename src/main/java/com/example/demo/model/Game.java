@@ -22,6 +22,8 @@ public class Game {
     @Column(nullable = false)
     public long uploader_id;
 
+//    @Column
+//    public String imageString;
 
 
 //    @Lob
@@ -38,8 +40,10 @@ public class Game {
     public void setSystem(String system) {this.system = system;}
     public String getDeveloper() {return developer;}
     public void setDeveloper(String developer) {this.developer = developer;}
-    public long getUploaderId() {return uploader_id;}
-    public void setUploaderId(long uploaderId) {this.uploader_id = uploaderId;}
+    public long getUploader_id() {return uploader_id;}
+    public void setUploader_id(long uploader_id) {this.uploader_id = uploader_id;}
 //    public byte[] getPicture() {return picture;}
 //    public void setPicture(byte[] picture) {this.picture = picture;}
+
+
 }
