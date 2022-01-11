@@ -22,6 +22,10 @@ public class GameServiceImpl implements GameService {
         return gameRepository.findByNameContains(name);
     }
 
+    public Iterable<Game> findBySystem(String system) {
+        return gameRepository.findBySystem(system);
+    }
+
     public void save(Game game) {
         gameRepository.save(game);
     }

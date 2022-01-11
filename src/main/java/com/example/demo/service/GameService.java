@@ -14,4 +14,6 @@ public interface GameService {
     void deleteById(long id);
 
     void updateGame(long id, Game game);
+
+    Iterable<Game> findBySystem(String system);
 }
