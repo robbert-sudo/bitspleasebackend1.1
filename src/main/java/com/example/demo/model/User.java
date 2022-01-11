@@ -11,20 +11,20 @@ import java.util.Set;
 public class User implements Serializable {
 
     @Id
-    @Column(unique = true)
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long user_id;
 
     @Column(nullable = false,unique = true)
     public String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private boolean enabled = true;
 
-    @Column()
+    @Column(nullable = false, unique = true)
     private String email;
 
     @OneToMany(
