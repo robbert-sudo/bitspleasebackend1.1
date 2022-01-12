@@ -6,6 +6,8 @@ import com.example.demo.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class GameServiceImpl implements GameService {
 
@@ -21,6 +23,8 @@ public class GameServiceImpl implements GameService {
     public Iterable<Game> findByName(String name) {
         return gameRepository.findByNameContains(name);
     }
+
+    public Optional<Game> findById(long id) { return gameRepository.findById(id); }
 
     public Iterable<Game> findBySystem(String system) {
         return gameRepository.findBySystem(system);

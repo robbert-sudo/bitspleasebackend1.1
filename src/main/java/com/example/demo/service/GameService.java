@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.model.Game;
 
+import java.util.Optional;
+
 public interface GameService {
 
 
@@ -16,4 +18,6 @@ public interface GameService {
     void updateGame(long id, Game game);
 
     Iterable<Game> findBySystem(String system);
+
+    Optional<Game> findById(long id);
 }
