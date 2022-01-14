@@ -23,8 +23,8 @@ public class Game {
     @Column(nullable = false)
     public long uploader_id;
 
-    @Lob
-    @Column
+//    @Lob
+    @Column(length = 130000)
     public String image;
 
 
