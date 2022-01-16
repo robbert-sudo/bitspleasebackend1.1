@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(value = "games")
 public class GameController {
@@ -27,6 +29,13 @@ public class GameController {
             games = gameService.findByName(name);
         }
                 return ResponseEntity.ok(games);
+    }
+
+
+    @GetMapping(value = "/id/{id}")
+    public ResponseEntity findGamesById(@PathVariable long id) {
+        Optional<Game> game = gameService.findById(id);
+        return ResponseEntity.ok(game);
     }
 
     @GetMapping(value = "/system/{system}")
