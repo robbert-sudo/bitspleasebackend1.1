@@ -11,7 +11,7 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-    @Column(length = 80)
+    @Column(length = 80, nullable = false)
     public String name;
 
     @Column(length = 30)
@@ -23,9 +23,14 @@ public class Game {
     @Column(nullable = false)
     public long uploader_id;
 
+    @Column(nullable = false)
+    public float price;
+
 //    @Lob
-    @Column(length = 130000)
+    @Column(length = 250000)
     public String image;
+
+
 
 
 //    @Lob
@@ -75,6 +80,8 @@ public class Game {
     //    public byte[] getPicture() {return picture;}
 //    public void setPicture(byte[] picture) {this.picture = picture;}
 
+    public float getPrice() {return price;}
+    public void setPrice(float price) {this.price = price;}
     public String getImage() {return image;}
     public void setImage(String image) {this.image = image;}
 
