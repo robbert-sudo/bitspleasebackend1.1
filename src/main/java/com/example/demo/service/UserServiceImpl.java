@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.UserRepository.UserRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.dto.request.UserPostRequest;
 import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.model.User;

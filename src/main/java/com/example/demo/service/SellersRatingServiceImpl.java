@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.UserRepository.SellersRatingRepository;
+import com.example.demo.repository.SellersRatingRepository;
 import com.example.demo.model.SellersRating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class SellersRatingServiceImpl implements SellersRatingService {
 
-    @Autowired
     private SellersRatingRepository sellersRatingRepository;
+
+    @Autowired
+    private SellersRatingServiceImpl(SellersRatingRepository sellersRatingRepository) {
+        this.sellersRatingRepository = sellersRatingRepository;
+    }
 
     @Override
     public void save(SellersRating sellersRating) {
@@ -24,19 +28,19 @@ public class SellersRatingServiceImpl implements SellersRatingService {
 
 
     @Override
-    public Iterable<SellersRating> findAllByRatedUserId(long ratedUserId) {
-        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAllByRatedUserId(ratedUserId);
+    public Iterable<SellersRating> findAllByRatedUserId(long rated_user_id) {
+        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAllByRatedUserId(rated_user_id);
         return sellersRatings;
 
     }
 
     @Override
-    public float getAverageRatingBySeller(long ratedUserId) {
+    public float getAverageRatingBySeller(long rated_user_id) {
 
         float total = 0;
         float size = 0;
 
-        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAllByRatedUserId(ratedUserId);
+        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAllByRatedUserId(rated_user_id);
         for (SellersRating sellersRating : sellersRatings) {
             total += sellersRating.getRating();
             size += 1;
