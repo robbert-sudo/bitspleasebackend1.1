@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.UserRepository.GameRepository;
+import com.example.demo.repository.GameRepository;
 import com.example.demo.exceptions.RecordNotFoundException;
 import com.example.demo.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -9,7 +9,7 @@ public class SellersRating {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ratingId;
+    private long rating_id;
 
     @Column
     private long ratedUserId;
@@ -17,8 +17,8 @@ public class SellersRating {
     @Column
     private long rating;
 
-    public long getRatingId() {return ratingId;}
-    public void setRatingId(long ratingId) {this.ratingId = ratingId;}
+    public long getRatingId() {return rating_id;}
+    public void setRatingId(long rating_id) {this.rating_id = rating_id;}
     public long getRatedUserId() {return ratedUserId;}
     public void setRatedUserId(long ratedUserId) {this.ratedUserId = ratedUserId;}
     public long getRating() {return rating;}

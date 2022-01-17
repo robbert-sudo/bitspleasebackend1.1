@@ -29,15 +29,15 @@ public class SellersRatingController {
         return ResponseEntity.ok(sellersRatings);
     }
 
-    @GetMapping(value = "/{ratedUserId}")
-    public ResponseEntity getAllRatingsFromUser(@PathVariable long ratedUserId) {
-        Iterable<SellersRating> sellersRatings = sellersRatingService.findAllByRatedUserId(ratedUserId);
+    @GetMapping(value = "/{rated_user_id}")
+    public ResponseEntity getAllRatingsFromUser(@PathVariable long rated_user_id) {
+        Iterable<SellersRating> sellersRatings = sellersRatingService.findAllByRatedUserId(rated_user_id);
         return ResponseEntity.ok(sellersRatings);
     }
 
-    @GetMapping(value = "/getaverage/{ratedUserId}")
-    public ResponseEntity getAverageRatingBySeller(@PathVariable long ratedUserId) {
-        float averageSellerRating = sellersRatingService.getAverageRatingBySeller(ratedUserId);
+    @GetMapping(value = "/getaverage/{rated_user_id}")
+    public ResponseEntity getAverageRatingBySeller(@PathVariable long rated_user_id) {
+        float averageSellerRating = sellersRatingService.getAverageRatingBySeller(rated_user_id);
         return ResponseEntity.ok(averageSellerRating);
     }
 
