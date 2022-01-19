@@ -24,6 +24,9 @@ public class Game {
     public long uploader_id;
 
     @Column(nullable = false)
+    public String uploader_name;
+
+    @Column(nullable = false)
     public float price;
 
 //    @Lob
@@ -77,8 +80,9 @@ public class Game {
         this.uploader_id = uploader_id;
     }
 
-    //    public byte[] getPicture() {return picture;}
-//    public void setPicture(byte[] picture) {this.picture = picture;}
+    public String getUploader_name() {return uploader_name;}
+
+    public void setUploader_name(String uploader_name) {this.uploader_name = uploader_name;}
 
     public float getPrice() {return price;}
     public void setPrice(float price) {this.price = price;}
