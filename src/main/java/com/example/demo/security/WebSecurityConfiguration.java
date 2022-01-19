@@ -82,7 +82,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(DELETE,"/games/**").permitAll()
                 .antMatchers(PUT, "/games/**").permitAll()
                 //.antMatchers( "/**").permitAll()
-                .antMatchers("/uploadFile").permitAll()
                 .antMatchers("/sellerratings/**").permitAll()
                 .anyRequest().denyAll()
                 .and()
