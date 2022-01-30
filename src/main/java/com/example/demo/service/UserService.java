@@ -15,4 +15,6 @@ public interface UserService {
     public String create(UserPostRequest userPostRequest);
 
     void delete(String username);
+
+    Optional<User> getUserById(long user_id);
 }
