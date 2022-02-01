@@ -1,9 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.repository.UserRepository;
 import com.example.demo.dto.request.UserPostRequest;
+import com.example.demo.dto.response.UserRateResponse;
 import com.example.demo.exceptions.BadRequestException;
+import com.example.demo.exceptions.UserNotFoundException;
 import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -66,9 +68,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getUserById(long user_id) {
-        Optional<User> user = userRepository.findById(user_id);
-        return user;
+    public UserRateResponse getUserById(long user_id) {
+        String ratedUserName = null;
+        try {
+            Optional<User> user = userRepository.findById(user_id);
+            if (user.isPresent()) {
+                ratedUserName = user.get().username;
+
+            }
+
+        } catch (UserNotFoundException e) {
+            throw new UserNotFoundException();
+        }
+        return new UserRateResponse(ratedUserName);
     }
 
 }

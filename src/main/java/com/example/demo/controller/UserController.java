@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.request.UserPostRequest;
+import com.example.demo.dto.response.UserRateResponse;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +39,12 @@ public class UserController {
 
     @GetMapping(value = "user/id/{user_id}")
     public ResponseEntity getUserById(@PathVariable("user_id")long user_id) {
-        Optional<User> user = userService.getUserById(user_id);
-        return ResponseEntity.ok(user);
+        UserRateResponse userRateResponse = userService.getUserById(user_id);
+        return ResponseEntity.ok(userRateResponse);
     }
+//        Optional<UserRateResponse> userRateResponse = userService.getUserById(user_id);
+//        return ResponseEntity.ok(userRateResponse);
+//    }
 
     @PostMapping(value = "/user")
     public ResponseEntity<Object> createUser(@RequestBody UserPostRequest userPostRequest) {

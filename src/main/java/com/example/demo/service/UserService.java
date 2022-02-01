@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.request.UserPostRequest;
+import com.example.demo.dto.response.UserRateResponse;
 import com.example.demo.model.User;
 
 import java.util.Optional;
@@ -16,5 +17,5 @@ public interface UserService {
 
     void delete(String username);
 
-    Optional<User> getUserById(long user_id);
+    public UserRateResponse getUserById(long user_id);
 }
