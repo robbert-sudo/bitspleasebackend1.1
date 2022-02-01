@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.repository.SellersRatingRepository;
 import com.example.demo.model.SellersRating;
+import com.example.demo.repository.SellersRatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +14,8 @@ public class SellersRatingServiceImpl implements SellersRatingService {
     private SellersRatingServiceImpl(SellersRatingRepository sellersRatingRepository) {
         this.sellersRatingRepository = sellersRatingRepository;
     }
+
+
 
     @Override
     public void save(SellersRating sellersRating) {
@@ -46,6 +48,7 @@ public class SellersRatingServiceImpl implements SellersRatingService {
             size += 1;
         }
         float averageRating = total / size;
+
         return averageRating;
     }
 //        ArrayList<SellersRating> results = new ArrayList<SellersRating>();
