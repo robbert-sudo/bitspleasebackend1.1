@@ -42,9 +42,7 @@ public class UserController {
         UserRateResponse userRateResponse = userService.getUserById(user_id);
         return ResponseEntity.ok(userRateResponse);
     }
-//        Optional<UserRateResponse> userRateResponse = userService.getUserById(user_id);
-//        return ResponseEntity.ok(userRateResponse);
-//    }
+
 
     @PostMapping(value = "/user")
     public ResponseEntity<Object> createUser(@RequestBody UserPostRequest userPostRequest) {
@@ -57,9 +55,15 @@ public class UserController {
         return ResponseEntity.created(location).build();
     }
 
-    @DeleteMapping(value = "/user/{username}")
-    public ResponseEntity deleteUser(@PathVariable("username") String username) {
-        userService.delete(username);
-        return ResponseEntity.ok("User verwijderd!");
+    @PatchMapping(value = "/user/{user_id}")
+    public ResponseEntity<Object> disableUser(@PathVariable("user_id")long user_id) {
+        userService.disableUser(user_id);
+        return ResponseEntity.noContent().build();
     }
+
+//    @DeleteMapping(value = "/user/{username}")
+//    public ResponseEntity deleteUser(@PathVariable("username") String username) {
+//        userService.delete(username);
+//        return ResponseEntity.ok("User verwijderd!");
+//    }
 }
