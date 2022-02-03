@@ -18,4 +18,6 @@ public interface UserService {
     void delete(String username);
 
     public UserRateResponse getUserById(long user_id);
+
+    void disableUser(long user_id);
 }

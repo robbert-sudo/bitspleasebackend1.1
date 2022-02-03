@@ -83,4 +83,17 @@ public class UserServiceImpl implements UserService {
         return new UserRateResponse(ratedUserName);
     }
 
+    @Override
+    public void disableUser(long user_id) {
+        Optional<User> optionalUser = userRepository.findById(user_id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setEnabled(false);
+            userRepository.save(user);
+        }
+        else {
+            throw new UserNotFoundException();
+        }
+    }
+
 }
