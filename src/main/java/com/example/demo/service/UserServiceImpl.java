@@ -94,7 +94,12 @@ public class UserServiceImpl implements UserService {
         else {
             throw new UserNotFoundException();
         }
-
     }
+
+    public Iterable<User> findAllByDisabled() {
+        return userRepository.findAllByEnabled(false);
+    }
+
+
 
 }
