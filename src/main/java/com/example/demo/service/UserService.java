@@ -20,4 +20,6 @@ public interface UserService {
     public UserRateResponse getUserById(long user_id);
 
     void disableUser(long user_id);
+
+    Iterable<User> findAllByDisabled();
 }
