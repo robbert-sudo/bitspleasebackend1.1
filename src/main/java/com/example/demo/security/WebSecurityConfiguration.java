@@ -84,7 +84,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(DELETE,"/games/**").permitAll()
                 .antMatchers(PUT, "/games/**").permitAll()
                 //.antMatchers( "/**").permitAll()
-                .antMatchers("/sellerratings/**").permitAll()
+                .antMatchers("/sellerratings/**").authenticated()
                 .anyRequest().denyAll()
                 .and()
                 .cors()

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "games")
-public class GameController {
+public class  GameController {
 
     private GameService gameService;
 
