@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @GetMapping(value = "user/id/{user_id}")
-    public ResponseEntity getUserById(@PathVariable("user_id")long user_id) {
+    public ResponseEntity getUserById(@PathVariable("user_id") long user_id) {
         UserRateResponse userRateResponse = userService.getUserById(user_id);
         return ResponseEntity.ok(userRateResponse);
     }
@@ -56,14 +56,9 @@ public class UserController {
     }
 
     @PatchMapping(value = "/user/{user_id}")
-    public ResponseEntity<Object> disableUser(@PathVariable("user_id")long user_id) {
+    public ResponseEntity<Object> disableUser(@PathVariable("user_id") long user_id) {
         userService.disableUser(user_id);
         return ResponseEntity.noContent().build();
     }
 
-//    @DeleteMapping(value = "/user/{username}")
-//    public ResponseEntity deleteUser(@PathVariable("username") String username) {
-//        userService.delete(username);
-//        return ResponseEntity.ok("User verwijderd!");
-//    }
 }

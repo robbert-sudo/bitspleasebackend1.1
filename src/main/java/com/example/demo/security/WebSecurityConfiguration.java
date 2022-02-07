@@ -76,14 +76,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(DELETE, "/user/**").authenticated()
                 .antMatchers("/customers/**").hasRole("USER")
                 .antMatchers(POST,"/authenticate").permitAll()
-//                .antMatchers("/authenticated").permitAll()
-                .antMatchers(GET,"/public").permitAll()
                 .antMatchers(GET,"/games/**").authenticated()
-
                 .antMatchers(POST,"/games").authenticated()
                 .antMatchers(DELETE,"/games/**").authenticated()
                 .antMatchers(PUT, "/games/**").authenticated()
-                //.antMatchers( "/**").permitAll()
                 .antMatchers("/sellerratings/**").authenticated()
                 .anyRequest().denyAll()
                 .and()
@@ -92,7 +88,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .cors()
                 .and()
-                //.formLogin().disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

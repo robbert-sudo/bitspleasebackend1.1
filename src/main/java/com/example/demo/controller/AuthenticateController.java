@@ -19,12 +19,6 @@ public class AuthenticateController {
         this.userAuthenticateService = userAuthenticateService;
     }
 
-
-//    @GetMapping(value = "/authenticated")
-//    public ResponseEntity<Object> authenticated(Authentication authentication, Principal principle) {
-//        return ResponseEntity.ok().body(principle);
-//    }
-
     @PostMapping(value = "/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 
