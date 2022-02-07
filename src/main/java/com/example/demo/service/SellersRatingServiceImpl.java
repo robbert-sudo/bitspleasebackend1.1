@@ -51,23 +51,5 @@ public class SellersRatingServiceImpl implements SellersRatingService {
 
         return averageRating;
     }
-//        ArrayList<SellersRating> results = new ArrayList<SellersRating>();
-//        Iterable<SellersRating> sellersRatings = sellersRatingRepository.findAll();
-//        for (SellersRating sellersRating : sellersRatings) {
-//            if (sellersRating.getRatedUserId() == sellerId) {
-//                results.add(sellersRating);
-//            }
-//        }
-//        if (results.size() == 0) {
-//            return 0;
-//        }
-//        long total = 0;
-//        for (SellersRating s : results) {
-//            total += s.getRating();
-//        }
-//        float averageRating = (float) total / (float) results.size();
-//        return averageRating;
-//    }
-
 
 }

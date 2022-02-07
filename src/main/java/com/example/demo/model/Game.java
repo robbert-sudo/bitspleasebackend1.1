@@ -29,16 +29,11 @@ public class Game {
     @Column(nullable = false)
     public float price;
 
-//    @Lob
     @Column(length = 250000)
     public String image;
 
 
 
-
-//    @Lob
-//    @Column
-//    public byte[] picture;
 
     public long getId() {
         return id;
